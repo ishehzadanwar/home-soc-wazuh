@@ -40,8 +40,7 @@ correctly triaging a scary-looking **level-15 alert down to a false positive**.
 </div>
 
 **Lab networking:** VMs run on an isolated VMware host-only network so the lab can't touch the
-home LAN. The agent ships events to the manager over encrypted TCP/1514. An ASCII version of this
-diagram also lives in [`docs/architecture.md`](docs/architecture.md).
+home LAN. The agent ships events to the manager over encrypted TCP/1514.
 
 ---
 
@@ -105,7 +104,8 @@ Full step-by-step evidence for all three lives in the [investigations](investiga
 home-soc-wazuh/
 ├── README.md                       ← you are here
 ├── docs/
-│   ├── architecture.md             ← architecture notes / diagram
+│   ├── banner.svg                  ← hero banner
+│   ├── architecture.svg            ← architecture diagram
 │   └── screenshots/                ← all evidence (14 images)
 ├── config/
 │   ├── README.md                   ← config notes

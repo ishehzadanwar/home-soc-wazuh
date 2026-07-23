@@ -43,7 +43,7 @@ Wazuh flagged that parent→child lineage — a classic obfuscation/execution pa
 
 ## False-positive triage
 
-*(the real skill)* {#false-positive-triage}
+> *This is the real analyst skill on display.*
 
 The **level-15** "Executable file dropped in folder commonly used by malware" looks like the worst
 alert of the day. A junior analyst who escalates on severity alone would raise a false alarm. Reading
