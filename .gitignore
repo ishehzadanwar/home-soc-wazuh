@@ -1,0 +1,12 @@
+# OS / editor junk
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.vscode/
+
+# Never commit real secrets, exported logs, or raw alert dumps
+*.env
+secrets/
+*.pcap
+raw-logs/

@@ -1,0 +1,14 @@
+<!--
+  Wazuh agent config addition — collect the Sysmon event channel.
+
+  Added inside <ossec_config> in the Windows agent's ossec.conf:
+      C:\Program Files (x86)\ossec-agent\ossec.conf
+
+  Without this block, Wazuh does NOT pick up Sysmon events automatically.
+  After adding it, restart the agent:  Restart-Service WazuhSvc
+-->
+
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>
