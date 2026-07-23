@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1712"/>
+      <stop offset="1" stop-color="#120d09"/>
+    </linearGradient>
+    <linearGradient id="aamber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2c46b"/>
+      <stop offset="1" stop-color="#d98f2b"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c9b79c"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d9705f"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="620" rx="16" fill="url(#abg)"/>
+  <text x="40" y="52" fill="#f6efe1" font-size="26" font-weight="700">Log pipeline &amp; lab architecture</text>
+  <rect x="42" y="66" width="70" height="4" rx="2" fill="url(#aamber)"/>
+
+  <!-- ENDPOINT CONTAINER -->
+  <rect x="40" y="100" width="620" height="230" rx="14" fill="#191410" stroke="#5b9bd5" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="64" y="118" width="14" height="14" rx="3" fill="#5b9bd5"/>
+  <text x="88" y="131" fill="#9cc4ea" font-size="18" font-weight="600">Windows 11 Endpoint — Win11-Victim</text>
+  <text x="64" y="156" fill="#7d7266" font-size="14" font-family="Consolas, monospace">192.168.64.132</text>
+
+  <!-- source: Sysmon -->
+  <rect x="70" y="176" width="230" height="66" rx="10" fill="#241d16" stroke="#3a2f24"/>
+  <text x="185" y="204" fill="#f1e7d6" font-size="16" font-weight="600" text-anchor="middle">Sysmon v15.21</text>
+  <text x="185" y="226" fill="#a99a86" font-size="13" text-anchor="middle">SwiftOnSecurity config</text>
+
+  <!-- source: Security log -->
+  <rect x="330" y="176" width="260" height="66" rx="10" fill="#241d16" stroke="#3a2f24"/>
+  <text x="460" y="204" fill="#f1e7d6" font-size="16" font-weight="600" text-anchor="middle">Windows Security Log</text>
+  <text x="460" y="226" fill="#a99a86" font-size="13" text-anchor="middle" font-family="Consolas, monospace">4720 · 4732 · 4625</text>
+
+  <!-- agent -->
+  <rect x="250" y="272" width="200" height="44" rx="10" fill="url(#aamber)"/>
+  <text x="350" y="300" fill="#1a130b" font-size="17" font-weight="700" text-anchor="middle">Wazuh Agent</text>
+
+  <!-- source -> agent arrows -->
+  <path d="M185 242 L185 262 Q185 294 260 294" fill="none" stroke="#c9b79c" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M460 242 L460 262 Q460 294 440 294" fill="none" stroke="#c9b79c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ATTACKER -->
+  <rect x="710" y="150" width="248" height="120" rx="14" fill="#191410" stroke="#d9705f" stroke-opacity="0.6" stroke-width="1.5"/>
+  <text x="834" y="188" fill="#e79483" font-size="17" font-weight="600" text-anchor="middle">Simulated attacker</text>
+  <text x="834" y="214" fill="#a99a86" font-size="13" text-anchor="middle">run locally on the endpoint</text>
+  <text x="834" y="238" fill="#a99a86" font-size="13" text-anchor="middle" font-family="Consolas, monospace">net.exe · PowerShell</text>
+  <path d="M710 224 L664 224" fill="none" stroke="#d9705f" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrowRed)"/>
+
+  <!-- agent -> manager -->
+  <path d="M350 316 L350 396" fill="none" stroke="#c9b79c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="222" y="338" width="256" height="30" rx="15" fill="#241d16" stroke="#3a2f24"/>
+  <text x="350" y="358" fill="#d9c7ac" font-size="13" text-anchor="middle" font-family="Consolas, monospace">encrypted · TCP 1514</text>
+
+  <!-- MANAGER CONTAINER -->
+  <rect x="140" y="404" width="420" height="110" rx="14" fill="#191410" stroke="#6cc08b" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="164" y="422" width="14" height="14" rx="3" fill="#6cc08b"/>
+  <text x="188" y="435" fill="#8fd3ab" font-size="18" font-weight="600">Ubuntu Server — Wazuh Manager</text>
+  <text x="164" y="459" fill="#7d7266" font-size="14" font-family="Consolas, monospace">192.168.64.134</text>
+  <rect x="164" y="470" width="372" height="34" rx="9" fill="#241d16" stroke="#3a2f24"/>
+  <text x="350" y="492" fill="#f1e7d6" font-size="15" font-weight="600" text-anchor="middle">Manager  +  Indexer  +  Dashboard</text>
+
+  <!-- manager -> analyst -->
+  <path d="M350 514 L350 552" fill="none" stroke="#c9b79c" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ANALYST -->
+  <rect x="250" y="558" width="200" height="44" rx="10" fill="#241d16" stroke="url(#aamber)" stroke-width="1.5"/>
+  <text x="350" y="586" fill="#f2c46b" font-size="16" font-weight="700" text-anchor="middle">Analyst investigates</text>
+
+  <!-- side note -->
+  <text x="600" y="470" fill="#6f6456" font-size="13">Isolated VMware</text>
+  <text x="600" y="490" fill="#6f6456" font-size="13">host-only network —</text>
+  <text x="600" y="510" fill="#6f6456" font-size="13">no home-LAN access</text>
+</svg>

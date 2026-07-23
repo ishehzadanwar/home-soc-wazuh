@@ -1,13 +1,18 @@
-# 🛡️ Home SOC with Wazuh
+<div align="center">
 
-> A home Security Operations Center built to demonstrate the core of blue-team work:
-> **collect logs from endpoints → centralize them in a SIEM → turn them into alerts → investigate like an analyst.**
+<img src="docs/banner.svg" alt="Home SOC with Wazuh" width="100%">
 
-![SIEM](https://img.shields.io/badge/SIEM-Wazuh%204.14.6-005792)
-![Endpoint](https://img.shields.io/badge/Endpoint-Windows%2011%20Pro-0078D6)
-![Telemetry](https://img.shields.io/badge/Telemetry-Sysmon%20v15.21-1f6feb)
-![Framework](https://img.shields.io/badge/Mapped%20to-MITRE%20ATT%26CK-red)
-![Hypervisor](https://img.shields.io/badge/Lab-VMware%20Workstation-607078)
+<br><br>
+
+![SIEM](https://img.shields.io/badge/SIEM-Wazuh_4.14.6-d98f2b?style=flat-square&labelColor=1c1712)
+![Endpoint](https://img.shields.io/badge/Endpoint-Windows_11_Pro-5b9bd5?style=flat-square&labelColor=1c1712)
+![Telemetry](https://img.shields.io/badge/Telemetry-Sysmon_v15.21-e0a23b?style=flat-square&labelColor=1c1712)
+![Framework](https://img.shields.io/badge/Mapped_to-MITRE_ATT%26CK-d9705f?style=flat-square&labelColor=1c1712)
+![Lab](https://img.shields.io/badge/Lab-VMware_Workstation-6cc08b?style=flat-square&labelColor=1c1712)
+
+**Collect logs from endpoints → centralize them in a SIEM → turn them into alerts → investigate like an analyst.**
+
+</div>
 
 ---
 
@@ -30,28 +35,13 @@ correctly triaging a scary-looking **level-15 alert down to a false positive**.
 
 ## 🗺️ Architecture
 
-```mermaid
-flowchart TB
-    subgraph WM["🐧 Ubuntu Server — Wazuh Manager (192.168.64.134)"]
-        MGR["Manager + Indexer + Dashboard"]
-    end
-    subgraph EP["🪟 Windows 11 Endpoint — Win11-Victim (192.168.64.132)"]
-        AGENT["Wazuh Agent"]
-        SYS["Sysmon v15.21<br/>(SwiftOnSecurity config)"]
-        WINLOG["Windows Security<br/>Event Log"]
-        SYS --> AGENT
-        WINLOG --> AGENT
-    end
-    ATTACK["⚔️ Simulated attacker activity<br/>(run locally on the endpoint)"]
-    ATTACK -.-> EP
-    AGENT -- "encrypted 1514/tcp" --> MGR
-    MGR --> DASH["📊 Analyst investigates<br/>alerts in dashboard"]
-```
+<div align="center">
+  <img src="docs/architecture.svg" alt="Log pipeline and lab architecture" width="90%">
+</div>
 
 **Lab networking:** VMs run on an isolated VMware host-only network so the lab can't touch the
-home LAN. The agent ships events to the manager over encrypted TCP/1514.
-
-> 📄 A higher-resolution diagram can be added at `docs/architecture.md`.
+home LAN. The agent ships events to the manager over encrypted TCP/1514. An ASCII version of this
+diagram also lives in [`docs/architecture.md`](docs/architecture.md).
 
 ---
 
