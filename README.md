@@ -140,4 +140,8 @@ home-soc-wazuh/
 
 ---
 
-*Built as a portfolio project for junior SOC analyst roles. Part of a five-project SOC series.*
+<div align="center">
+
+**stay curious, stay secure**
+
+</div>
